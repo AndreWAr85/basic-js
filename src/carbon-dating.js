@@ -25,6 +25,8 @@ function dateSample(remaining) {
    const t = Math.log(quantity) / rateOfDecay
    console.log(remainingNumber)
    if ((typeof remaining) !== 'string') { return false }
+   else if ((remainingNumber) == 0) { return false }
+   else if ((remainingNumber) > MODERN_ACTIVITY) { return false }
    else if (isNaN(t)) { return false }
    else { return Math.floor(t) }
 
