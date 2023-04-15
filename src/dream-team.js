@@ -13,21 +13,20 @@ const { NotImplementedError } = require('../extensions/index.js');
  * createDreamTeam(['Olivia', 1111, 'Lily', 'Oscar', true, null]) => 'LOO'
  *
  */
+
+
 let firstLiterName = []
 function createDreamTeam(nameList) {
-   console.log(nameList)
    if (nameList != null) {
       for (i = 0; i < nameList.length; i++) {
-         //console.log('List ' + nameList[i])
          if (typeof nameList[i] === 'string') {
-            let name = nameList[i]
-            //console.log('name ' + name)
-            for (j = 0; j < name.length; j++) {
-               //console.log('firstLiter ' + name[j])
-            } firstLiterName.push(name[0])
+            let nameLast = nameList[i].trim()
+            let name = nameLast.toUpperCase()
+            let nameIterator = name[Symbol.iterator]()
+            literName = nameIterator.next().value
+            firstLiterName.push(literName)
          }
       }
-
    }
    else if (typeof nameList == "undefined" && "boolean"
    ) {
@@ -37,19 +36,14 @@ function createDreamTeam(nameList) {
       return false
    }
    if (firstLiterName.length !== 0) {
-      // console.log(firstLiterName.length)
       firstLiterNameSort = firstLiterName.sort()
-      console.log(firstLiterNameSort)
-      //if (firstLiterNameSort.includes('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z')) {
       let nameArray = String(firstLiterNameSort.join(''))
-      //console.log(nameArray)
       return nameArray
-      //}      else { return false }
    }
    else { return false }
 
 }
-
+createDreamTeam()
 module.exports = {
    createDreamTeam
 };
