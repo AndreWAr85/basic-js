@@ -13,11 +13,43 @@ const { NotImplementedError } = require('../extensions/index.js');
  * createDreamTeam(['Olivia', 1111, 'Lily', 'Oscar', true, null]) => 'LOO'
  *
  */
-function createDreamTeam(/* members */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+let firstLiterName = []
+function createDreamTeam(nameList) {
+   console.log(nameList)
+   if (nameList != null) {
+      for (i = 0; i < nameList.length; i++) {
+         //console.log('List ' + nameList[i])
+         if (typeof nameList[i] === 'string') {
+            let name = nameList[i]
+            //console.log('name ' + name)
+            for (j = 0; j < name.length; j++) {
+               //console.log('firstLiter ' + name[j])
+            } firstLiterName.push(name[0])
+         }
+      }
+
+   }
+   else if (typeof nameList == "undefined" && "boolean"
+   ) {
+      return false
+   }
+   else {
+      return false
+   }
+   if (firstLiterName.length !== 0) {
+      // console.log(firstLiterName.length)
+      firstLiterNameSort = firstLiterName.sort()
+      console.log(firstLiterNameSort)
+      //if (firstLiterNameSort.includes('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z')) {
+      let nameArray = String(firstLiterNameSort.join(''))
+      //console.log(nameArray)
+      return nameArray
+      //}      else { return false }
+   }
+   else { return false }
+
 }
 
 module.exports = {
-  createDreamTeam
+   createDreamTeam
 };
