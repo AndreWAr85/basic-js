@@ -20,15 +20,16 @@ const HALF_LIFE_PERIOD = 5730;
 
 function dateSample(remaining) {
    const remainingNumber = Number(remaining);
-   const rateOfDecay = Math.log(2) / HALF_LIFE_PERIOD
+   const rateOfDecay = 0.693 / HALF_LIFE_PERIOD
    const quantity = MODERN_ACTIVITY / remainingNumber;
    const t = Math.log(quantity) / rateOfDecay
+   console.log(Math.log(2))
    console.log(remainingNumber)
    if ((typeof remaining) !== 'string') { return false }
    else if ((remainingNumber) == 0) { return false }
-   else if ((remainingNumber) > MODERN_ACTIVITY) { return false }
    else if (isNaN(t)) { return false }
-   else { return Math.floor(t) }
+   else if ((remainingNumber) > MODERN_ACTIVITY) { return false }
+   else { return Math.ceil(t) }
 
 }
 
