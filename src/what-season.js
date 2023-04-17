@@ -12,6 +12,8 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function getSeason(date) {
+   if (date instanceof Date == false || Date == undefined) throw new Error('Invalid date!');
+
    let time = date.getTime();
    console.log(time)
 
@@ -22,7 +24,7 @@ function getSeason(date) {
    console.log(Y)
    console.log(M)
    console.log(D)
-   if (time !== undefined || null) {
+   if (time !== undefined) {
       if (isValidDate(Y, M, D) === false) {
          return 'Error'
       }
@@ -37,15 +39,6 @@ function getSeason(date) {
    console.log(utc)
    let String = date.toDateString();
    console.log(String)
-
-   let d = date.getDay();
-   console.log(d + " dni")
-   let H = date.getHours()
-   console.log(H + " godzin")
-   let minutes = date.getMinutes();
-   console.log(minutes + " minut")
-   let seconds = date.getSeconds();
-   console.log(seconds + " sekund")
 
    if (M < 3 || M == 12) {
       return ("winter")
