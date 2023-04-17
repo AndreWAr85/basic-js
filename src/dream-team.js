@@ -13,22 +13,15 @@ const { NotImplementedError } = require('../extensions/index.js');
  * createDreamTeam(['Olivia', 1111, 'Lily', 'Oscar', true, null]) => 'LOO'
  *
  */
-let firstLiterName = []
+
 function createDreamTeam(nameList) {
    if (!Array.isArray(nameList)) { return false };
-
+   let firstLiterName = []
    let filterName = nameList.filter(e => typeof e === 'string');
    for (i = 0; i < filterName.length; i++) {
-      //if (typeof nameList[i] === 'string') {
-      //let nameLast = nameList[i].trim()
-      //let name = nameLast.toUpperCase()
-      //console.log('name ' + name)
-      //let nameIterator = name[Symbol.iterator]()
-      //literName = nameIterator.next().value
-      // console.log(literName)
-      firstLiterName.push((filterName[i]).replace(/\s/g, '').slice(0, 1).toUpperCase());
+      firstLiterName.push(String(filterName[i]).replace(/\s/g, '').slice(0, 1).toUpperCase());
 
-   } let nameArray = String(firstLiterName.sort().join(''))
+   } let nameArray = (firstLiterName.sort().join(''))
    return nameArray
 }
 createDreamTeam()
