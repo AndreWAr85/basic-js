@@ -15,7 +15,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 let firstLiterName = []
 function createDreamTeam(nameList) {
-   console.log(nameList)
+   if (!Array.isArray(nameList)) { return false }
    if (nameList != null) {
       for (i = 0; i < nameList.length; i++) {
          if (typeof nameList[i] === 'string') {
