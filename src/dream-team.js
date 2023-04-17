@@ -15,35 +15,21 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 let firstLiterName = []
 function createDreamTeam(nameList) {
-   if (!Array.isArray(nameList)) { return false }
-   if (nameList != null) {
-      for (i = 0; i < nameList.length; i++) {
-         if (typeof nameList[i] === 'string') {
-            let nameLast = nameList[i].trim()
-            let name = nameLast.toUpperCase()
-            console.log('name ' + name)
-            let nameIterator = name[Symbol.iterator]()
-            literName = nameIterator.next().value
-            console.log(literName)
-            firstLiterName.push(literName)
-            firstLiterNameSort = firstLiterName.sort()
-            continue
-         }
-      }
-   }
-   else if (typeof nameList === "undefined" || "boolean"
-   ) {
-      return false
-   }
-   else {
-      return false
-   }
-   if (firstLiterNameSort.length !== 0) {
-      console.log(firstLiterNameSort)
-      let nameArray = String(firstLiterNameSort.join(''))
-      return nameArray
-   }
-   else { return false }
+   if (!Array.isArray(nameList)) { return false };
+
+   let filterName = nameList.filter(e => typeof e === 'string');
+   for (i = 0; i < filterName.length; i++) {
+      //if (typeof nameList[i] === 'string') {
+      //let nameLast = nameList[i].trim()
+      //let name = nameLast.toUpperCase()
+      //console.log('name ' + name)
+      //let nameIterator = name[Symbol.iterator]()
+      //literName = nameIterator.next().value
+      // console.log(literName)
+      firstLiterName.push((filterName[i]).replace(/\s/g, '').slice(0, 1).toUpperCase());
+
+   } let nameArray = String(firstLiterName.sort().join(''))
+   return nameArray
 }
 createDreamTeam()
 module.exports = {
